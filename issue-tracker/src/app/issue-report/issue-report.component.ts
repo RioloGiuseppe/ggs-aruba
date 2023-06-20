@@ -24,6 +24,10 @@ export class IssueReportComponent implements OnInit {
   }
 
   addIssue() {
+    if(this.issueForm && this.issueForm.invalid){
+      this.issueForm.markAllAsTouched();
+      return;
+    }
     this.issuesServices.createIssue(this.issueForm?.value)
     this.formClose.emit()
   }
