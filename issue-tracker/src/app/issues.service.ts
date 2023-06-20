@@ -19,4 +19,14 @@ export class IssuesService {
     this.issues.push(issue)
   }
 
+  completeIssue(issue: Issue): void {
+    const selectedIssue: Issue = {
+      ...issue,
+      completed: new Date(),
+    };
+
+    const index = this.issues.findIndex((x) => x === issue);
+    this.issues[index] = selectedIssue;
+  }
+
 }
