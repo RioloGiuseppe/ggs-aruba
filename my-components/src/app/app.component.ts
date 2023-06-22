@@ -10,4 +10,8 @@ import { assassins } from './assassins';
 export class AppComponent {
   title = 'my-components';
   cards: Card[] = assassins;
+
+  log() {
+    console.log(`${this.title} copied to clipboard!`);
+  }
 }
