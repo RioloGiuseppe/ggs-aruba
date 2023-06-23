@@ -4,12 +4,13 @@ import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { authGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/log-in', pathMatch: 'full' },
   { path: 'log-in', component: SigninComponent },
   { path: 'sign-up', component: SignupComponent },
-  { path: 'user-profile/:id', component: UserProfileComponent },
+  { path: 'user-profile/:id', component: UserProfileComponent, canActivate: [authGuard] },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: '/not-found', pathMatch: 'full' }
 ];

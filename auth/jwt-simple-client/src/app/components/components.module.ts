@@ -5,6 +5,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SigninComponent } from './signin/signin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -18,7 +19,15 @@ import { NotFoundComponent } from './not-found/not-found.component';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  exports: [
+    SigninComponent,
+    SignupComponent,
+    UserProfileComponent,
+    NotFoundComponent,
+    HttpClientModule
   ]
 })
 export class ComponentsModule { }

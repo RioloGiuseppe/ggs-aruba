@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/auth/auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -12,7 +13,8 @@ export class SigninComponent {
 
   constructor(
     public fb: FormBuilder,
-    public router: Router
+    public router: Router,
+    public authService: AuthService,
   ) {
     this.signinForm = this.fb.group({
       email: ['', Validators.required],
@@ -21,7 +23,7 @@ export class SigninComponent {
   }
 
   loginUser() {
-
+    this.authService.signIn(this.signinForm.value);
   }
 
 }
